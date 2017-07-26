@@ -7,4 +7,21 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { hashHistory as history, Router } from 'react-router'
+import store from '../application/store'
+import routes from '../application/routes'
+import '../application/styles'
+
+document.addEventListener("DOMContentLoaded", event => { 
+  ReactDOM.render(
+    <div>
+      <Provider store={store}>
+        <Router history={history} routes={routes} />
+      </Provider>
+    </div>,
+    document.getElementById('app-container')
+  )
+})
